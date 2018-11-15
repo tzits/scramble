@@ -29,19 +29,21 @@ createCard = function() {
 	var text = prompt("Anything To Say?")
 	var moreText = text.split(" ")
 	for(var i=0; i < moreText.length; i++) {
-		words.push(moreText[i])
+		words.push({
+			key: moreText[i],
+			number: i
+		})
 	}
 	var k = words.length
-	var newWords = words
+	const newWords = words
+	console.log(newWords)
 	for(var i=0 ; i < k; i ++) {
 		j = Math.floor(Math.random() * (words.length));
 		var card = new Card();
 		console.log(words[j])
-		var index = newWords.indexOf(words[j])
-		console.log(index)
-		card.create(words[j],index);
+		card.create(words[j].key,words[j].number);
 		words.splice(j,1)
-		console.log(words)
+		console.log(newWords)
 	}
 	$('button').remove()
 }
