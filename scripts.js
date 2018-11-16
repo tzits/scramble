@@ -2,6 +2,8 @@ var count = 0
 
 var words = []
 
+var placed = []
+
 function Card() {
 
 }
@@ -45,12 +47,24 @@ createCard = function() {
 }
 
 selectCard = function() {
-	console.log($(this).attr('val'))
 	var order = $(this).attr('val')
 	if(order == count) {
 		console.log('boom')
+		count += 1
+		$(this).css('opacity',".5")
+		$('#cont2').append(this)
+		placed.push(order)
+		console.log(placed)
 	} else {
 		console.log('sad trombone')
+		alert('WRONG')
+		for(var i = 0; i < placed.length; i++) {
+			var x = $('#' + i)
+			x.css('opacity','1')
+			$('#cont1').append(x)
+		}
+		count = 0
+
 	}
 }
 
