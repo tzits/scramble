@@ -2,27 +2,29 @@ var count = 0
 
 var words = []
 
+var placed = []
+
 function Card() {
-	this.width = "50px";
-	this.height = "50px";
-	this.order = 0;
+
 }
 
 Card.prototype.create = function(text,i) {
 	var x = document.createElement("span");
     x.setAttribute("class","card");
-    x.setAttribute("id",i)
-	$('#container').append(x);
-    $("#" + i).text(text)
+    x.setAttribute("id",i);
+    x.setAttribute("val",i)
+	$('#cont1').append(x);
+    $("#" + i).text(text);
+    $("#" + i).bind('click',selectCard);
 }
 
-Card.prototype.select = function(id){
-	if(id == count) {
-		console.log('boom')
-	} else {
-		console.log('sad trombone')
-	}
-}
+// Card.prototype.select = function(id){
+// 	if (id == count) {
+// 		console.log('boom')
+// 	} else {
+// 		console.log('sad trombone')
+// 	}
+// }
 
 
 createCard = function() {
@@ -43,5 +45,28 @@ createCard = function() {
 	}
 	$('button').remove()
 }
+
+selectCard = function() {
+	var order = $(this).attr('val')
+	if(order == count) {
+		console.log('boom')
+		count += 1
+		$(this).css('opacity',".5")
+		$('#cont2').append(this)
+		placed.push(order)
+		console.log(placed)
+	} else {
+		console.log('sad trombone')
+		alert('WRONG')
+		for(var i = 0; i < placed.length; i++) {
+			var x = $('#' + i)
+			x.css('opacity','1')
+			$('#cont1').append(x)
+		}
+		count = 0
+
+	}
+}
+
 
 // $('#demo').click(createCard())
