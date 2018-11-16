@@ -10,19 +10,19 @@ Card.prototype.create = function(text,i) {
 	var x = document.createElement("span");
     x.setAttribute("class","card");
     x.setAttribute("id",i);
-    // x.setAttribute("val",i)
+    x.setAttribute("val",i)
 	$('#cont1').append(x);
     $("#" + i).text(text);
     $("#" + i).bind('click',selectCard);
 }
 
-Card.prototype.select = function(id){
-	if (id == count) {
-		console.log('boom')
-	} else {
-		console.log('sad trombone')
-	}
-}
+// Card.prototype.select = function(id){
+// 	if (id == count) {
+// 		console.log('boom')
+// 	} else {
+// 		console.log('sad trombone')
+// 	}
+// }
 
 
 createCard = function() {
@@ -45,7 +45,14 @@ createCard = function() {
 }
 
 selectCard = function() {
-	console.log("booyah")
+	console.log($(this).attr('val'))
+	var order = $(this).attr('val')
+	if(order == count) {
+		console.log('boom')
+	} else {
+		console.log('sad trombone')
+	}
 }
+
 
 // $('#demo').click(createCard())
