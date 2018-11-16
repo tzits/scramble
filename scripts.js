@@ -1,5 +1,7 @@
 var count = 0
 
+var total = 0
+
 var words = []
 
 var placed = []
@@ -18,14 +20,6 @@ Card.prototype.create = function(text,i) {
     $("#" + i).bind('click',selectCard);
 }
 
-// Card.prototype.select = function(id){
-// 	if (id == count) {
-// 		console.log('boom')
-// 	} else {
-// 		console.log('sad trombone')
-// 	}
-// }
-
 
 createCard = function() {
 	var text = prompt("Anything To Say?")
@@ -37,6 +31,7 @@ createCard = function() {
 		})
 	}
 	var k = words.length
+	total = words.length
 	for(var i=0 ; i < k; i ++) {
 		j = Math.floor(Math.random() * (words.length));
 		var card = new Card();
@@ -49,13 +44,14 @@ createCard = function() {
 selectCard = function() {
 	var order = $(this).attr('val')
 	if(order == count) {
-		console.log('boom')
 		count += 1
 		$(this).css('opacity',".5")
 		$('#cont2').append(this)
 		placed.push(order)
-		console.log(placed)
-	} else {
+		 if (count == total) {
+			alert("Well Done!")
+		}
+	}	else {
 		console.log('sad trombone')
 		alert('WRONG')
 		for(var i = 0; i < placed.length; i++) {
@@ -64,9 +60,5 @@ selectCard = function() {
 			$('#cont1').append(x)
 		}
 		count = 0
-
-	}
+	} 
 }
-
-
-// $('#demo').click(createCard())
