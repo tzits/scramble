@@ -3,21 +3,21 @@ var count = 0
 var words = []
 
 function Card() {
-	this.width = "50px";
-	this.height = "50px";
-	this.order = 0;
+
 }
 
 Card.prototype.create = function(text,i) {
 	var x = document.createElement("span");
     x.setAttribute("class","card");
-    x.setAttribute("id",i)
-	$('#container').append(x);
-    $("#" + i).text(text)
+    x.setAttribute("id",i);
+    // x.setAttribute("val",i)
+	$('#cont1').append(x);
+    $("#" + i).text(text);
+    $("#" + i).bind('click',selectCard);
 }
 
 Card.prototype.select = function(id){
-	if(id == count) {
+	if (id == count) {
 		console.log('boom')
 	} else {
 		console.log('sad trombone')
@@ -42,6 +42,10 @@ createCard = function() {
 		words.splice(j,1)
 	}
 	$('button').remove()
+}
+
+selectCard = function() {
+	console.log("booyah")
 }
 
 // $('#demo').click(createCard())
