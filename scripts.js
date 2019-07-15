@@ -38,7 +38,7 @@ createCard = function() {
 		card.create(words[j].key,words[j].number);
 		words.splice(j,1)
 	}
-	$('button').remove()
+	$('button').css('opacity',"0")
 }
 
 selectCard = function() {
@@ -48,12 +48,15 @@ selectCard = function() {
 		$(this).css('opacity',".5")
 		$('#cont2').append(this)
 		placed.push(order)
-		 if (count == total) {
+		if (count == total) {
 			alert("Well Done!")
+			$('button').css('opacity',"1")
+			$('button').text('Go Again?')
+
 		}
-	}	else {
+	} else {
 		console.log('sad trombone')
-		alert('WRONG')
+		alert('Try Again')
 		for(var i = 0; i < placed.length; i++) {
 			var x = $('#' + i)
 			x.css('opacity','1')
