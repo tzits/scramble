@@ -22,7 +22,8 @@ Card.prototype.create = function(text,i) {
 
 
 createCard = function() {
-	var text = prompt("Anything To Say?")
+	$('#cont2').empty()
+	var text = prompt("Words to Scramble?")
 	var moreText = text.split(" ")
 	for(var i=0; i < moreText.length; i++) {
 		words.push({
@@ -50,6 +51,7 @@ selectCard = function() {
 		placed.push(order)
 		if (count == total) {
 			alert("Well Done!")
+			count = 0
 			$('button').css('opacity',"1")
 			$('button').text('Go Again?')
 

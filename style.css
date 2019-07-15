@@ -6,6 +6,10 @@ h1 {
 	background-color: lightgrey;
 }
 
+#cont2 {
+	background-color: lightblue;
+}
+
 .card {
 	padding: 10px;
 	background-color: red;
@@ -20,11 +24,17 @@ h1 {
 }
 
 .container {
-
 	margin-top: 50px;
 	width: 100vw;
 	height: 30vh;
 	text-align: center;
 	vertical-align: middle;
 	display: table-cell;
+}
+
+#demo {
+	margin: 2%;
+	padding: 1%;
+	border-radius: 5px;
+
 }
